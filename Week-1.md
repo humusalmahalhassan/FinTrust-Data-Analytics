@@ -224,6 +224,20 @@ The eventual Data Analytics solution will be considered successful if it:
 | **Missing values** | `Device_Type` (96 missing) and `Location` (96 missing) |
 | **Obvious data quality issues** | • **Missing information:** 96 rows are missing `Device_Type` and `Location`.<br>• **Dates saved as plain text:** `Transaction_DateTime` is stored as text, stopping automatic time calculations.<br>• **Short history:** Averages only 8 transactions per customer. |
 
+## Data Profiling Notebook
+
+The initial data profiling was performed using Python and Pandas in Jupyter Notebook.
+
+The notebook includes:
+
+- Dataset structure and dimensions
+- Column names and data types
+- Missing-value assessment
+- Duplicate checks
+- Descriptive statistics
+- Initial observations about the datasets
+
+[View the Data Profiling Notebook](./https://github.com/humusalmahalhassan/FinTrust-Data-Analytics/blob/main/FinTrust_Data_Profiling.ipynb.md)
 
 
 ## 5.3 Relationship Between the Datasets
