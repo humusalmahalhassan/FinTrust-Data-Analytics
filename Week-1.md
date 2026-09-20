@@ -237,7 +237,7 @@ The notebook includes:
 - Descriptive statistics
 - Initial observations about the datasets
 
-[View the Data Profiling Notebook](./https://github.com/humusalmahalhassan/FinTrust-Data-Analytics/blob/main/FinTrust_Data_Profiling.ipynb.md)
+([View the Data Profiling Notebook](./FinTrust_Data_Profiling.ipynb.md))
 
 
 ## 5.3 Relationship Between the Datasets
