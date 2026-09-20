@@ -196,64 +196,35 @@ The eventual Data Analytics solution will be considered successful if it:
 
 ## 5.1 Customer Dataset
 
-| Number of records | 1500 |
-| Number of columns | 12 |
-| Field names | 'Customer_ID', 'Customer_Name', 'Age', 'Gender', 'City',
-       'Customer_Segment', 'Account_Type', 'Tenure_Months',
-       'Digital_Engagement_Score', 'Monthly_Income_Band', 'Preferred_Channel',
-       'Account_Status' |
-| Data types | Customer_ID   object
-Customer_Name                object
-Age                          int64
-Gender                       object
-City                         object
-Customer_Segment             object
-Account_Type                 object
-Tenure_Months                int64
-Digital_Engagement_Score     float64
-Monthly_Income_Band          object
-Preferred_Channel            object
-Account_Status               object |
-| Categorical variables | Customer_ID, Customer_Name, Gender, City, Customer_Segment, Account_Type, Monthly_Income_Band, Preferred_Channel, Account_Status |
-| Numerical variables |Age,Tenure_Months, Digital_Engagement_Score|
-| Date/time variables |0|
-| Missing values | Zero Missing values |
-| Obvious data-quality issues |
-Missing income details: Income is shown in generic ranges (like "Low" or "High") instead of exact dollar or naira figures.
-Missing financial history: The dataset lacks key risk info like credit scores, loan histories, savings totals, or job status.
-Basic details only: It only covers simple facts (age, city, gender, account type), which limits deep analysis.
-|
+| Metric / Category | Details |
+| :--- | :--- |
+| **Number of records** | 1,500 |
+| **Number of columns** | 12 |
+| **Field names** | `Customer_ID`, `Customer_Name`, `Age`, `Gender`, `City`, `Customer_Segment`, `Account_Type`, `Tenure_Months`, `Digital_Engagement_Score`, `Monthly_Income_Band`, `Preferred_Channel`, `Account_Status` |
+| **Data types** | **`object`** (9): `Customer_ID`, `Customer_Name`, `Gender`, `City`, `Customer_Segment`, `Account_Type`, `Monthly_Income_Band`, `Preferred_Channel`, `Account_Status`<br>**`int64`** (2): `Age`, `Tenure_Months`<br>**`float64`** (1): `Digital_Engagement_Score` |
+| **Categorical variables** | `Customer_ID`, `Customer_Name`, `Gender`, `City`, `Customer_Segment`, `Account_Type`, `Monthly_Income_Band`, `Preferred_Channel`, `Account_Status` |
+| **Numerical variables** | `Age`, `Tenure_Months`, `Digital_Engagement_Score` |
+| **Date/time variables** | None (0) |
+| **Missing values** | Zero missing values (1,500 / 1,500 complete) |
+| **Obvious data quality issues** | • **Missing income details:** Income is shown in generic ranges rather than exact figures.<br>• **Missing financial history:** Lacks credit scores, loan histories, savings totals, or job status.<br>• **Basic details only:** Covers simple facts, limiting deep analysis. |
 
 ---
 
 ## 5.2 Transaction Dataset
 
-| Number of records | 12000 |
-| Number of columns | 11 |
-| Field names | 'Transaction_ID', 'Customer_ID', 'Transaction_DateTime',
-       'Transaction_Type', 'Amount_NGN', 'Channel', 'Device_Type', 'Location',
-       'International_Transaction', 'Transaction_Status', 'Risk_Review_Flag' |
-| Data types| Transaction_ID  object
-Customer_ID                   object
-Transaction_DateTime          object
-Transaction_Type              object
-Amount_NGN                   float64
-Channel                       object
-Device_Type                   object
-Location                      object
-International_Transaction     object
-Transaction_Status            object
-Risk_Review_Flag              object |
-| Categorical variables | Customer_ID, Transaction_Type, Channel, Device_Type, Location, International_Transaction, Transaction_Status, Risk_Review_Flag |
-| Numerical variables | Amount_NGN  |
-| Date/time variables | Transaction_DateTime |
-| Missing values | Device_Type: 96, Location: 96 |
-| Obvious data-quality issues | 
-Missing information: Columns like Device_Type and Location are missing data in 96 rows.
-Dates saved as plain text: The date and time column (Transaction_DateTime) is stored as text, which stops Python from doing automatic time calculations or date filtering.
-Short history: With 12,000 transactions across 1,500 people, each customer averages only 8 transactions, which is too short to track long-term spending patterns. 
-|
----
+| Metric / Category | Details |
+| :--- | :--- |
+| **Number of records** | 12,000 |
+| **Number of columns** | 11 |
+| **Field names** | `Transaction_ID`, `Customer_ID`, `Transaction_DateTime`, `Transaction_Type`, `Amount_NGN`, `Channel`, `Device_Type`, `Location`, `International_Transaction`, `Transaction_Status`, `Risk_Review_Flag` |
+| **Data types** | **`object`** (10): `Transaction_ID`, `Customer_ID`, `Transaction_DateTime`, `Transaction_Type`, `Channel`, `Device_Type`, `Location`, `International_Transaction`, `Transaction_Status`, `Risk_Review_Flag`<br>**`float64`** (1): `Amount_NGN` |
+| **Categorical variables** | `Transaction_ID`, `Customer_ID`, `Transaction_Type`, `Channel`, `Device_Type`, `Location`, `International_Transaction`, `Transaction_Status`, `Risk_Review_Flag` |
+| **Numerical variables** | `Amount_NGN` |
+| **Date/time variables** | `Transaction_DateTime` *(stored as plain text `object` instead of true `datetime64`)* |
+| **Missing values** | `Device_Type` (96 missing) and `Location` (96 missing) |
+| **Obvious data quality issues** | • **Missing information:** 96 rows are missing `Device_Type` and `Location`.<br>• **Dates saved as plain text:** `Transaction_DateTime` is stored as text, stopping automatic time calculations.<br>• **Short history:** Averages only 8 transactions per customer. |
+
+
 
 ## 5.3 Relationship Between the Datasets
 
